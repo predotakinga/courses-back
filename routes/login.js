@@ -39,13 +39,13 @@ const getHashPassword = async (req, res, username, password) => {
         );
         res.header("Authorization", `Bearer ${accessToken}`);
         console.log(accessToken);
-        res.status(200).send(accessToken);
+        res.send(accessToken);
       } else {
         // res.send("Username or password is incorrect");
-        res.status(401).send("Username or password is incorrect");
+        res.send("Username or password is incorrect");
       }
     } else {
-      res.status(401).send("Username or password is incorrect");
+      res.send("Username or password is incorrect");
     }
   } catch (err) {
     console.log(err);
@@ -60,7 +60,7 @@ router
   .route("/")
   .get((req, res) => {})
   .post((req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
+    // res.header("Access-Control-Allow-Origin", "*");
     const { username, password } = req.body;
     getHashPassword(req, res, username, password);
   });
