@@ -1,6 +1,6 @@
 const jwt_decode = require("jwt-decode");
 const express = require("express");
-const router = express.Route();
+const router = express.Router();
 const oracledb = require("oracledb");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
