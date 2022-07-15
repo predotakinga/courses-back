@@ -31,6 +31,14 @@ app.get("/", (req, res) => {
   res.send("hello world i kingusia");
 });
 
-const PORT = process.env.PORT || 3002;
+const port = process.env.PORT || 8080;
 
-app().listen(PORT, () => console.log(`Listening on ${PORT}`));
+app.use("/", express.static(path.join(__dirname, "testheroku")));
+
+app.listen(port, () => {
+  console.log(`Listening on http://localhost:${port}/`);
+});
+
+// const PORT = process.env.PORT || 3002;
+
+// app().listen(PORT, () => console.log(`Listening on ${PORT}`));
