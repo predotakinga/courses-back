@@ -60,6 +60,7 @@ router
   .route("/")
   .get((req, res) => {})
   .post((req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     const { username, password } = req.body;
     getHashPassword(req, res, username, password);
   });
