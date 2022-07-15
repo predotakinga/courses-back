@@ -27,5 +27,7 @@ app.use("/limit", limitRoutes);
 app.use("/mycourses", auth, mycoursesRoutes);
 app.use("/joincourse", auth, joinCourseRoutes);
 app.use("/signoffcourse", auth, signOffCourseRoutes);
-
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
 app.listen(3002);
