@@ -28,6 +28,9 @@ app.use("/mycourses", auth, mycoursesRoutes);
 app.use("/joincourse", auth, joinCourseRoutes);
 app.use("/signoffcourse", auth, signOffCourseRoutes);
 app.get("/", (req, res) => {
-  res.send("hello world");
+  res.send("hello world i kingusia");
 });
-app.listen(3002);
+
+const PORT = process.env.PORT || 5000;
+
+app().listen(PORT, () => console.log(`Listening on ${PORT}`));
