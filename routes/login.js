@@ -9,11 +9,11 @@ const config = require("../connectionConfig.json");
 
 const accessTokenSecret = "youraccesstokensecret";
 
-const getHashPassword = async (req, res, username, password) => {
+const getHashPassword = (req, res, username, password) => {
   let conn;
   try {
-    conn = await oracledb.getConnection(config);
-    const result = await conn.execute(
+    conn = oracledb.getConnection(config);
+    const result = conn.execute(
       `SELECT USER_PASS FROM S_APP.SAV_USERS WHERE USER_LOGIN = '${username}'`,
       [],
       {
@@ -51,7 +51,7 @@ const getHashPassword = async (req, res, username, password) => {
     console.log(err);
   } finally {
     if (conn) {
-      await conn.close();
+      conn.close();
     }
   }
 };
