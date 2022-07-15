@@ -29,7 +29,7 @@ app.use("/mycourses", auth, mycoursesRoutes);
 app.use("/joincourse", auth, joinCourseRoutes);
 app.use("/signoffcourse", auth, signOffCourseRoutes);
 app.get("/", (req, res) => {
-  res.send("hello world i kingusia");
+  res.send("hello world i'm kingusia");
 });
 
 const port = process.env.PORT || 8080;
