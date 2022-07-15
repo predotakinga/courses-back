@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router;
+const router = express.Router();
 const oracledb = require("oracledb");
 
 const config = require("../connectionConfig.json");
