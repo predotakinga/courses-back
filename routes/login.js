@@ -51,7 +51,7 @@ const getHashPassword = async (req, res, username, password) => {
     console.log(err);
   } finally {
     if (conn) {
-      conn.close();
+      // conn.close();
     }
   }
 };
