@@ -12,7 +12,7 @@ const accessTokenSecret = "youraccesstokensecret";
 const getHashPassword = async (req, res, username, password) => {
   let conn;
   try {
-    conn = oracledb.getConnection(config);
+    conn = await oracledb.getConnection(config);
     const result = await conn.execute(
       `SELECT USER_PASS FROM S_APP.SAV_USERS WHERE USER_LOGIN = '${username}'`,
       [],
@@ -51,7 +51,7 @@ const getHashPassword = async (req, res, username, password) => {
     console.log(err);
   } finally {
     if (conn) {
-      // conn.close();
+      await conn.close();
     }
   }
 };
